@@ -1,0 +1,668 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#0e1117;
+  --panel:#ffffff;
+  --text:#0b1221;
+  --muted:#596277;
+  --line:#e7ecf3;
+  --accent:#1f6feb;
+}
+
+*{ box-sizing:border-box; user-select:none; }
+
+html,body{
+  margin:0;
+  padding:0;
+  background: radial-gradient(1200px 800px at 50% 0px, rgba(255,255,255,.08) 0%, #0e1117 70%);
+  font-family:'Playfair Display', serif;
+  color:var(--text);
+}
+html{ scroll-behavior:smooth; }
+
+/* Make project panel wider like the reference */
+.container {
+  max-width: 1520px;   /* was 980px — increase width */
+  margin: 0 auto;
+  padding: 28px 40px;  /* a bit more side padding */
+}
+.header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 28px; max-width:980px; margin:0 auto;
+}
+.brand{ color:#f8fafc; font-weight:700; letter-spacing:.04em; }
+.top-links a{
+  color:#e6edf3; margin-left:14px; text-decoration:none;
+  border:1px solid rgba(255,255,255,.18); padding:6px 10px; border-radius:8px;
+}
+.top-links a:hover{ background:rgba(255,255,255,.08); }
+
+.panel{
+  background:var(--panel);
+  border-radius:10px;
+  border:1px solid #dfe5ef;
+  box-shadow:0 6px 30px rgba(0,0,0,.15);
+}
+
+/* -------------------------------------------------
+   HERO (Intro) — no more full-screen gap
+-------------------------------------------------- */
+.hero-full{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  /* Remove the big forced height and use comfortable padding instead */
+  min-height:auto;
+  padding:84px 0 18px;   /* top / bottom spacing */
+  text-align:center;
+  color:#f5f7fb;
+  position:relative;
+  background-blend-mode:soft-light;
+}
+.hero-full .inner{
+  max-width:none;
+  width:100%;
+  padding:0 6vw;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.75rem;          /* tight spacing: title → paragraph → arrow */
+}
+
+/* Title + paragraph */
+.hero-title{
+  width:min(1600px,94vw);
+  font-size:clamp(3rem,8.5vw,6rem);
+  line-height:1.08;
+  font-weight:800;
+  letter-spacing:.035em;
+  margin:0 auto .2rem auto;
+}
+.hero-sub{
+  width:min(1600px,92vw);
+  margin:0 auto;
+  opacity:.95;
+  line-height:1.6;
+  font-size:clamp(1rem,1.2vw + .6rem,1.25rem);
+  color:#f1f3f8;
+}
+
+/* soft halo */
+.hero-full::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(800px 500px at 30% -10%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(700px 500px at 80% 120%, rgba(255,255,255,.05), transparent 60%);
+  pointer-events:none;
+}
+
+/* Down arrow: sits right under the paragraph */
+.scroll-indicator{
+  position:static;               /* normal flow under text */
+  margin-top:.4rem;
+  width:44px; height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.35);
+  display:grid; place-items:center;
+  text-decoration:none; color:#e6edf3;
+  transition:border-color .2s ease, color .2s ease, transform .2s ease;
+  animation:scroll-bounce 2s infinite;
+  cursor:pointer;
+}
+.scroll-indicator:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(2px);
+}
+.scroll-indicator svg{ width:22px; height:22px; pointer-events:none; }
+@keyframes scroll-bounce{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(3px)} }
+
+/* Pull the white panel up tighter under the hero */
+.panel.container{ margin-top:0; }
+.panel.container > *:first-child{ margin-top:0; }
+
+/* Section label (PROJECTS) */
+.section-label{
+  display:inline-block;
+  background:#fff;
+  color:#0b1221;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  padding:6px 12px;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  position:relative;
+  top:-20px; left:-28px;
+  border-bottom:2px solid #e7ecf3;
+  text-decoration:none; cursor:pointer;
+  transition:all .25s ease;
+}
+.section-label:hover{
+  color:#1f6feb;
+  border-bottom-color:#1f6feb;
+  text-decoration:underline;
+  transform:translateY(-2px);
+}
+
+/* Cards / feature (unchanged) */
+.hero{ padding:36px; border-bottom:1px solid var(--line); text-align:center; }
+.hero h1{ margin:0 0 6px 0; font-size:2.2rem; letter-spacing:.02em; }
+.hero p{ margin:0 auto; color:var(--muted); max-width:720px; }
+
+.feature{
+  display:grid; grid-template-columns:1fr; gap:16px;
+  padding:28px 28px 14px 28px; border-bottom:1px solid var(--line);
+}
+.feature h2{ margin:.2rem 0; }
+.feature .bigimg{ width:100%; height:auto; border-radius:10px; border:1px solid var(--line); }
+.feature .meta{ color:var(--muted); margin-top:6px; }
+
+.btn{
+  display:inline-block; background:var(--accent); color:#fff;
+  padding:10px 14px; border-radius:10px; text-decoration:none;
+  font-weight:600; border:1px solid #174ea6;
+}
+
+.cards{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:18px; padding:18px 28px 28px 28px;
+}
+.card{
+  display:flex; flex-direction:column;
+  border:1px solid var(--line); border-radius:10px;
+  overflow:hidden; background:#fff;
+}
+.card a{ color:var(--accent); text-decoration:none; }
+.card .thumb{
+  display:block; width:100%; height:160px; object-fit:cover;
+  border-bottom:1px solid var(--line); transition:transform .2s ease;
+}
+.card:hover .thumb{ transform:scale(1.02); }
+.card .body{ padding:14px; }
+.card h3{ margin:.2rem 0 .4rem 0; }
+.card p{ margin:0 0 .6rem 0; color:#4b5566; }
+.card .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+.badge{ font-size:.75rem; color:#3f4859; border:1px solid #d7dfea; border-radius:999px; padding:2px 8px; }
+.card .cta{ padding:0 14px 14px; }
+.card .view{ display:inline-block; border:1px solid #c9d4e6; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:600; }
+.card .view:hover{ background:#f3f7fe; }
+
+.footer {
+  max-width: 1520px;
+  margin: 28px auto;
+  color: #e6edf3;
+  text-align: center;
+  padding: 22px 0;
+}
+.footer a{ color:#9ec1ff; text-decoration:none; }
+.line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  margin:24px 0;
+}
+
+@media (max-width:860px){
+  .cards{ grid-template-columns:1fr; }
+}
+/* === Project Panel layout like the reference === */
+.project-panel {
+  padding: 24px 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 30px rgba(0,0,0,.12);
+}
+
+/* Big featured block */
+.feature-post {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;  /* copy left, image right */
+  gap: 24px;
+  padding: 18px 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+.feature-title {
+  margin: .2rem 0 .25rem 0;
+  font-size: clamp(1.25rem, 1.2vw + 1rem, 1.8rem);
+  color: var(--text);
+}
+.feature-meta {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-bottom: .5rem;
+}
+.feature-blurb { color:#4b5566; margin: 0 0 .8rem 0; }
+.feature-img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+/* 2-column card grid with separators like lines */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2px;               /* tight to divider */
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+.mini-card {
+  display: grid;
+  grid-template-columns: 130px 1fr; /* thumbnail left, text right */
+  gap: 16px;
+  padding: 18px;
+  background:#fff;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.mini-thumb {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.mini-title { margin: .1rem 0 .25rem 0; font-size: 1.02rem; color: var(--text); }
+.mini-meta  { color: var(--muted); font-size: .85rem; margin-bottom: .4rem; }
+.mini-blurb { color: #4b5566; margin: 0 0 .5rem 0; font-size: .95rem; }
+.mini-link  { text-decoration: none; font-weight: 600; color: var(--accent); }
+.mini-link:hover { text-decoration: underline; }
+
+/* Responsive: stack nicely on small screens */
+@media (max-width: 960px) {
+  .feature-post { grid-template-columns: 1fr; }
+  .feature-img { order: 2; }
+}
+@media (max-width: 860px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .mini-card  { grid-template-columns: 110px 1fr; }
+}
+/* ===== Featured Project: Vertical Layout ===== */
+.feature-post.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+  padding: 40px 60px;
+  border-bottom: 1px solid var(--line);
+}
+
+.feature-post.vertical .feature-title {
+  font-size: clamp(1.8rem, 2.5vw + 0.5rem, 2.4rem);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.feature-post.vertical .feature-meta {
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.feature-post.vertical .feature-blurb {
+  color: #4b5566;
+  max-width: 850px;
+  margin: 1rem auto;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.feature-post.vertical .feature-img-vertical {
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+
+.feature-btn-wrapper {
+  margin-top: 1.5rem;
+}
+
+.feature-btn-wrapper .btn {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+/* === Individual Hover Highlights for Title / Image / Button === */
+
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+/* TITLE */
+.title-link .feature-title {
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+.title-link:hover .feature-title {
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(31, 111, 235, 0.4);
+}
+
+/* IMAGE */
+.img-link {
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.img-link:hover .feature-img-vertical {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(31, 111, 235, 0.25);
+}
+
+/* BUTTON */
+.feature-btn-wrapper .btn {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  transition: all 0.25s ease;
+}
+.feature-btn-wrapper .btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 111, 235, 0.35);
+}
+/* Vertical mini-card layout */
+.mini-card.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mini-card.vertical .mini-thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.mini-card.vertical .mini-blurb {
+  text-align: justify;
+  margin: 0.5rem 0 1.2rem 0;
+  max-width: 90%;
+}
+
+.mini-card.vertical .btn {
+  margin-top: auto;
+}
+
+/* Hover polish */
+.mini-card.vertical a:hover img {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+.mini-card.vertical a:hover h3 {
+  color: var(--accent);
+  transition: color 0.2s ease-in-out;
+}
+/* === TITLE SIZES & EMPHASIS =================================== */
+.feature-title {
+  /* big headline for the first/featured project */
+  font-size: clamp(2rem, 2.2vw + 1rem, 2.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.mini-title {
+  /* headings for the half-width projects */
+  font-size: clamp(1.15rem, 0.7vw + 1rem, 1.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* === CONSISTENT SPACING / VERTICAL RHYTHM ===================== */
+.feature-copy p,
+.mini-body p {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+/* Add some breathing room between cards in the 2-col grid */
+.cards-grid {
+  gap: 28px;
+}
+
+/* === HALF-WIDTH CARD LAYOUT: VERTICAL STACK =================== */
+/* If you still have an older .mini-card grid rule earlier
+   (grid-template-columns: 130px 1fr), this later block will override it. */
+.mini-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* center image/title nicely */
+  text-align: left;
+  gap: 1.2rem;
+  padding: 24px;
+}
+
+/* Make images span the card width with nice corners */
+.mini-thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Give the “View project →” link a bit of air from the paragraph */
+.mini-link {
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+/* Optional: slightly larger body text inside mini cards on big screens */
+@media (min-width: 1200px) {
+  .mini-body p { font-size: 1.02rem; }
+}
+
+/* === Bigger, more readable descriptions inside the white project panel === */
+
+/* Catch-all for body paragraphs in the panel */
+.panel.container.project-panel p {
+  font-size: clamp(1.04rem, 0.55vw + 0.98rem, 1.22rem);
+  line-height: 1.8;
+  color: #1b2230;
+  letter-spacing: 0.2px;
+}
+
+/* Keep small meta text actually small */
+.panel.container.project-panel .feature-meta,
+.panel.container.project-panel .mini-meta {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Named classes you already use (cover all layouts) */
+.feature-blurb,
+.v2-desc,
+.mini-blurb {
+  font-size: clamp(1.04rem, 0.55vw + 0.98rem, 1.22rem);
+  line-height: 1.8;
+  color: #1b2230;
+}
+
+/* Optional: limit paragraph width so lines don't get too long on wide screens */
+@media (min-width: 1200px) {
+  .panel.container.project-panel .feature-copy,
+  .panel.container.project-panel .v2-desc,
+  .panel.container.project-panel .mini-body {
+    max-width: 62ch; /* ~62 characters per line is comfy to read */
+  }
+}
+/* Consistent buttons inside the white project panel */
+.project-panel .btn {
+  display: inline-block;
+  background: #fff;                 /* white pill */
+  color: var(--accent);             /* blue text */
+  border: 1.5px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.project-panel .btn:hover {
+  background: var(--accent);        /* fill blue on hover */
+  color: #fff;                      /* white text on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(31, 111, 235, .25);
+}
+/* ===========================
+   CONTACT / FOOTER SECTION
+=========================== */
+.contact-footer {
+  padding: 80px 0 40px;
+  background: #fff;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.contact-block h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.contact-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.contact-block a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-block a:hover {
+  text-decoration: underline;
+}
+
+/* Social media icons */
+.social-icons a {
+  font-size: 1.25rem;
+  color: #222;
+  margin: 0 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.copyright-line {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+/* ===== Social icon sizing & styling ===== */
+
+/* TOP-RIGHT icons in the panel header */
+.panel-header .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-header .icons a {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #dfe5ef;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.panel-header .icons a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #f3f7fe;
+  transform: translateY(-1px);
+}
+
+.panel-header .icons svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* FOOTER contact icons */
+.contact-footer .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-footer .social-icons a {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid #dfe5ef;
+  background: #fff;
+  color: var(--text);
+  display: inline-grid;
+  place-items: center;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.contact-footer .social-icons a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #f3f7fe;
+  transform: translateY(-1px);
+}
+
+.contact-footer .social-icons svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}

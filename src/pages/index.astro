@@ -1,0 +1,227 @@
+---
+import Base from "../layouts/Base.astro";
+import Card from "../components/ProjectCard.astro";
+const title = "Victor King — Portfolio";
+---
+
+<Base {title}>
+
+  <!-- HERO SECTION -->
+  <fragment slot="hero">
+    <section id="top" class="hero-full">
+      <div class="inner">
+        <h1 class="hero-title">VICTOR KING<br />PORTFOLIO</h1>
+
+        <p class="hero-sub">
+          I’m <strong>Victor King</strong>, a Sports Data Scientist passionate about transforming complex performance data into meaningful, actionable insights.
+          With advanced skills in <strong>Python, R, and SQL</strong>, I develop <strong>ETL pipelines, predictive models, and interactive dashboards</strong>
+          that uncover patterns across <strong>football, basketball, hockey, baseball, and soccer analytics</strong>.
+          I earned my <strong>M.S. in Sport Analytics from Syracuse University</strong>, where I specialized in
+          <strong>data engineering, statistical modeling, and performance forecasting</strong>.
+          I aim to continue building innovative, data-driven solutions that bridge analytics, sport strategy, and decision science.
+        </p>
+
+        <a class="scroll-indicator" href="#projects" aria-label="Scroll to projects">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v12m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </fragment>
+
+  <!-- WHITE PROJECT PANEL -->
+  <section id="projects" class="panel container project-panel">
+    <div class="panel-header">
+      <a href="#top" class="section-label">PROJECTS</a>
+
+      <!-- Top-Right Social Icons -->
+      <div class="icons">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/vicvictorking/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8 10H6v8h2v-8zM7 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 4c-1.66 0-3 1.34-3 3v5h2v-5a1 1 0 0 1 2 0v5h2v-5c0-1.66-1.34-3-3-3z"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/victormking" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 2a10 10 0 0 0-3.162 19.492c.5.092.683-.217.683-.483 0-.237-.009-.866-.013-1.701-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.463-1.11-1.463-.908-.62.069-.607.069-.607 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.222-.253-4.555-1.111-4.555-4.944 0-1.091.39-1.985 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.026 2.748-1.026.546 1.378.203 2.397.1 2.65.64.698 1.028 1.592 1.028 2.683 0 3.842-2.337 4.688-4.565 4.937.359.31.679.921.679 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.481A10 10 0 0 0 12 2z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@mrking_analytics" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M21.8 8s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C16.9 4.7 12 4.7 12 4.7s-4.9 0-7.1.3c-.4.1-1.2.1-1.9.9C1.4 6.5 1.2 8 1.2 8S1 9.7 1 11.5v1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.7.8 1.7.8 2.1.9 1.5.1 6.9.3 6.9.3s4.9 0 7.1-.3c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1c0-1.8-.2-3.5-.2-3.5ZM9.8 14.8V8.9l5.8 2.95-5.8 2.95Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- FEATURED PROJECT -->
+    <article class="feature-post vertical">
+      <div class="feature-copy">
+        <a href="https://github.com/victormking/NFL_Explosive_Plays_Classification_XGBoost"
+           target="_blank" rel="noopener" class="feature-link title-link">
+          <h2 class="feature-title">NFL Explosive Plays Classification (XGBoost)</h2>
+        </a>
+        <div class="feature-meta">R • XGBoost • Model Evaluation • Feature Engineering</div>
+        <p class="feature-blurb">
+          This project builds a machine-learning model to classify explosive plays in the NFL — defined
+          as pass plays gaining 13 + yards or rush plays gaining 10 + yards — using Next Gen Stats data.
+          The model identifies key predictors and evaluates player-, team-, and personnel-level tendencies.
+        </p>
+      </div>
+
+      <a href="https://github.com/victormking/NFL_Explosive_Plays_Classification_XGBoost"
+         target="_blank" rel="noopener" class="feature-link img-link">
+        <img class="feature-img-vertical" src="/images/feature-nfl.png" alt="NFL XGBoost Capstone"/>
+      </a>
+
+      <div class="feature-btn-wrapper">
+        <a class="btn feature-link"
+           href="https://github.com/victormking/NFL_Explosive_Plays_Classification_XGBoost"
+           target="_blank" rel="noopener">View Project</a>
+      </div>
+    </article>
+
+    <!-- BASEBALL PROJECTS -->
+    <section class="cards-grid">
+      <!-- Rockies EV/LA -->
+      <article class="mini-card vertical">
+        <a href="https://github.com/victormking/Colorado_Rockies_2023_Impact_of_Exit_Velocity_and_Launch_Angle_on_Home_Runs"
+           target="_blank" rel="noopener" class="mini-link title-link">
+          <h3 class="mini-title">Colorado Rockies 2023 — Exit Velocity &amp; Launch Angle</h3>
+        </a>
+        <a href="https://github.com/victormking/Colorado_Rockies_2023_Impact_of_Exit_Velocity_and_Launch_Angle_on_Home_Runs"
+           target="_blank" rel="noopener" class="mini-link img-link">
+          <img class="mini-thumb" src="/images/rockies.png" alt="Colorado Rockies EV/LA"/>
+        </a>
+        <p class="mini-blurb">
+          This project visualizes how <strong>Exit Velocity</strong> and <strong>Launch Angle</strong>
+          affect home-run rates for the <strong>Colorado Rockies (2023)</strong> using Statcast data,
+          comparing <em>Coors Field</em> to away parks to show environmental effects on power-hitting efficiency.
+        </p>
+        <a class="btn feature-link"
+           href="https://github.com/victormking/Colorado_Rockies_2023_Impact_of_Exit_Velocity_and_Launch_Angle_on_Home_Runs"
+           target="_blank" rel="noopener">View Project</a>
+      </article>
+
+      <!-- Rockies wRC+ -->
+      <article class="mini-card vertical">
+        <a href="https://github.com/victormking/wRC_Trajectory_for_Colorado_Rockies_Players_1995_2022"
+           target="_blank" rel="noopener" class="mini-link title-link">
+          <h3 class="mini-title">Colorado Rockies — wRC+ Trajectory (1995–2022)</h3>
+        </a>
+        <a href="https://github.com/victormking/wRC_Trajectory_for_Colorado_Rockies_Players_1995_2022"
+           target="_blank" rel="noopener" class="mini-link img-link">
+          <img class="mini-thumb" src="/images/wrc.png" alt="wRC+ Trajectories"/>
+        </a>
+        <p class="mini-blurb">
+          This project models <strong>wRC+</strong> trajectories of Colorado Rockies players (1995–2022)
+          using Lahman R data to estimate peak performance ages and long-term efficiency patterns via regression.
+        </p>
+        <a class="btn feature-link"
+           href="https://github.com/victormking/wRC_Trajectory_for_Colorado_Rockies_Players_1995_2022"
+           target="_blank" rel="noopener">View Project</a>
+      </article>
+    </section>
+
+    <!-- NEW ROW: NBA + Sports Betting -->
+    <section class="cards-grid">
+      <!-- NBA Salary Analysis -->
+      <article class="mini-card vertical">
+        <a href="https://github.com/victormking/NBA_Salary_Performance_Analysis"
+           target="_blank" rel="noopener" class="mini-link title-link">
+          <h3 class="mini-title">NBA Fantasy Salary Performance Analysis (2019–2023)</h3>
+        </a>
+        <a href="https://github.com/victormking/NBA_Salary_Performance_Analysis"
+           target="_blank" rel="noopener" class="mini-link img-link">
+          <img class="mini-thumb" src="/images/nba_salary.png" alt="NBA Salary Analysis"/>
+        </a>
+        <p class="mini-blurb">
+          This project investigates <strong>economic efficiency</strong> in fantasy sports by analyzing
+          <strong>NBA player salaries vs performance</strong> (DraftKings 2019–2023). Linear regression models
+          reveal under- and over-valued players and the impact of venue and team context on salary accuracy.
+        </p>
+        <a class="btn feature-link"
+           href="https://github.com/victormking/NBA_Salary_Performance_Analysis"
+           target="_blank" rel="noopener">View Project</a>
+      </article>
+
+      <!-- Sports Betting Analytics -->
+      <article class="mini-card vertical">
+        <a href="https://github.com/victormking/sports_betting_analytics_sql_snowflake"
+           target="_blank" rel="noopener" class="mini-link title-link">
+          <h3 class="mini-title">Sports Betting Analytics — SQL &amp; Snowflake Insights</h3>
+        </a>
+        <a href="https://github.com/victormking/sports_betting_analytics_sql_snowflake"
+           target="_blank" rel="noopener" class="mini-link img-link">
+          <img class="mini-thumb" src="/images/sports_betting.png" alt="Sports Betting Analytics"/>
+        </a>
+        <p class="mini-blurb">
+          A full SQL + Snowflake pipeline analyzing <strong>user profitability and marketing insights</strong>
+          from 76 K simulated sports-betting slips. Built with CTEs, window functions, and Power BI visualizations
+          to measure house edge, win rates by slip size, and retention patterns for Splash Sports.
+        </p>
+        <a class="btn feature-link"
+           href="https://github.com/victormking/sports_betting_analytics_sql_snowflake"
+           target="_blank" rel="noopener">View Project</a>
+      </article>
+    </section>
+  </section>
+</Base>
+
+<!-- CONTACT / FOOTER SECTION -->
+<section class="contact-footer">
+  <div class="contact-grid">
+    <div class="contact-block">
+      <h4>LOCATION</h4>
+      <p>Denver, CO</p>
+    </div>
+
+    <div class="contact-block">
+      <h4>EMAIL</h4>
+      <p><a href="mailto:victorking1492@gmail.com">victorking1492@gmail.com</a></p>
+    </div>
+
+    <div class="contact-block">
+      <h4>SOCIAL MEDIA</h4>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/vicvictorking/"
+           target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8 10H6v8h2v-8zM7 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 4c-1.66 0-3 1.34-3 3v5h2v-5a1 1 0 0 1 2 0v5h2v-5c0-1.66-1.34-3-3-3z"/>
+          </svg>
+        </a>
+
+        <a href="https://github.com/victormking"
+           target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 2a10 10 0 0 0-3.162 19.492c.5.092.683-.217.683-.483 0-.237-.009-.866-.013-1.701-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.463-1.11-1.463-.908-.62.069-.607.069-.607 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.222-.253-4.555-1.111-4.555-4.944 0-1.091.39-1.985 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.026 2.748-1.026.546 1.378.203 2.397.1 2.65.64.698 1.028 1.592 1.028 2.683 0 3.842-2.337 4.688-4.565 4.937.359.31.679.921.679 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.481A10 10 0 0 0 12 2z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@mrking_analytics"
+           target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M21.8 8s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C16.9 4.7 12 4.7 12 4.7s-4.9 0-7.1.3c-.4.1-1.2.1-1.9.9C1.4 6.5 1.2 8 1.2 8S1 9.7 1 11.5v1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.7.8 1.7.8 2.1.9 1.5.1 6.9.3 6.9.3s4.9 0 7.1-.3c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1c0-1.8-.2-3.5-.2-3.5ZM9.8 14.8V8.9l5.8 2.95-5.8 2.95Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright-line">
+    © 2025 Victor King. All Rights Reserved.
+  </div>
+</section>
