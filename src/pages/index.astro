@@ -1,11 +1,14 @@
 ---
 import Base from "../layouts/Base.astro";
 import Card from "../components/ProjectCard.astro";
+
 const title = "Victor King — Portfolio";
+
+// base path for public assets ("/" in dev, "/portfolio_site/" on GitHub Pages)
+const BASE = import.meta.env.BASE_URL;
 ---
 
 <Base {title}>
-
   <!-- HERO SECTION -->
   <fragment slot="hero">
     <section id="top" class="hero-full">
@@ -81,7 +84,7 @@ const title = "Victor King — Portfolio";
 
       <a href="https://github.com/victormking/NFL_Explosive_Plays_Classification_XGBoost"
          target="_blank" rel="noopener" class="feature-link img-link">
-        <img class="feature-img-vertical" src="/images/feature-nfl.png" alt="NFL XGBoost Capstone"/>
+        <img class="feature-img-vertical" src={`${BASE}images/feature-nfl.png`} alt="NFL XGBoost Capstone"/>
       </a>
 
       <div class="feature-btn-wrapper">
@@ -101,7 +104,7 @@ const title = "Victor King — Portfolio";
         </a>
         <a href="https://github.com/victormking/Colorado_Rockies_2023_Impact_of_Exit_Velocity_and_Launch_Angle_on_Home_Runs"
            target="_blank" rel="noopener" class="mini-link img-link">
-          <img class="mini-thumb" src="/images/rockies.png" alt="Colorado Rockies EV/LA"/>
+          <img class="mini-thumb" src={`${BASE}images/rockies.png`} alt="Colorado Rockies EV/LA"/>
         </a>
         <p class="mini-blurb">
           This project visualizes how <strong>Exit Velocity</strong> and <strong>Launch Angle</strong>
@@ -121,7 +124,7 @@ const title = "Victor King — Portfolio";
         </a>
         <a href="https://github.com/victormking/wRC_Trajectory_for_Colorado_Rockies_Players_1995_2022"
            target="_blank" rel="noopener" class="mini-link img-link">
-          <img class="mini-thumb" src="/images/wrc.png" alt="wRC+ Trajectories"/>
+          <img class="mini-thumb" src={`${BASE}images/wrc.png`} alt="wRC+ Trajectories"/>
         </a>
         <p class="mini-blurb">
           This project models <strong>wRC+</strong> trajectories of Colorado Rockies players (1995–2022)
@@ -143,7 +146,7 @@ const title = "Victor King — Portfolio";
         </a>
         <a href="https://github.com/victormking/NBA_Salary_Performance_Analysis"
            target="_blank" rel="noopener" class="mini-link img-link">
-          <img class="mini-thumb" src="/images/nba_salary.png" alt="NBA Salary Analysis"/>
+          <img class="mini-thumb" src={`${BASE}images/nba_salary.png`} alt="NBA Salary Analysis"/>
         </a>
         <p class="mini-blurb">
           This project investigates <strong>economic efficiency</strong> in fantasy sports by analyzing
@@ -163,7 +166,7 @@ const title = "Victor King — Portfolio";
         </a>
         <a href="https://github.com/victormking/sports_betting_analytics_sql_snowflake"
            target="_blank" rel="noopener" class="mini-link img-link">
-          <img class="mini-thumb" src="/images/sports_betting.png" alt="Sports Betting Analytics"/>
+          <img class="mini-thumb" src={`${BASE}images/sports_betting.png`} alt="Sports Betting Analytics"/>
         </a>
         <p class="mini-blurb">
           A full SQL + Snowflake pipeline analyzing <strong>user profitability and marketing insights</strong>
